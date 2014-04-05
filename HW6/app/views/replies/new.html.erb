@@ -1,0 +1,7 @@
+<h1>Reply to topic <%=@topic.name%> (<i><%=@user.fname%> <%=@user.lname%></i>)</h1>
+<%= form_for [@user, @topic, Reply.new] do |t| %>
+	<%=t.label :description %>
+	<%=t.text_area :description, cols: 80, rows: 20%>
+<br/><br/>
+	<%=t.submit :create %>
+<% end %>

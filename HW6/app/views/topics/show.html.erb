@@ -1,0 +1,14 @@
+<h1><%=@topic.name%></h1>
+<%= link_to("Reply to this topic", new_user_topic_reply_path(@topic.user_id, @topic.id)) %>
+<h3><i>Existing replies</i></h3>
+<ul>
+<% @topic.replies.each do |reply| %>
+<% 
+@time_when_created = reply.created_at
+@time_passed = distance_of_time_in_words(@time_when_created, Time.now) 
+%>
+<li><%=reply.description%> (<%=@time_passed%>)</li>
+<% end %>
+</ul>
+<%= link_to("Back to other topics", 
+user_topics_path(@topic.user_id)) %>

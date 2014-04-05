@@ -1,0 +1,12 @@
+<h1><i><%=@user.fname%> <%=@user.lname%></i>'s topics</h1>
+<ul>
+<% @user.topics.each do |topic| %>
+	<li><%= link_to(user_topic_path(@user.id, topic.id)) do %>
+		<%=topic.name%>
+		<% end %>
+	</li>
+<% end %>
+</ul>
+<%= link_to("Back to other user topics", 
+root_path)%>
+

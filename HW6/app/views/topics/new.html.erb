@@ -1,0 +1,8 @@
+
+<h1>Create new topic for user <i><%=@user.fname%> <%=@user.lname%></i>:</h1>
+<%= form_for [@user, Topic.new] do |t| %>
+	<%=t.label :name, 'Name' %>
+	<%=t.text_field :name %>
+<br/><br/>
+	<%=t.submit :create %>
+<% end %>
